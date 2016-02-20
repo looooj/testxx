@@ -22,8 +22,8 @@ int readFileLines(const char* fn, std::vector<std::string>& lines)
             char line[4096];
             if ( feof(fp) )
                 break;                
-            fgets( line, 4000, fp );
-            lines.push_back( line );
+            if ( fgets( line, 4000, fp ) )
+                lines.push_back( line );
             total++;
             
         }
